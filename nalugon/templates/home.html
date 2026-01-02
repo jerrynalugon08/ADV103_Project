@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+
+<style>
+body {
+	background-image: url("{% static 'images/123.jpg' %}");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1930px 1100px;
+    background-attachment: fixed;
+}
+
+ul li {
+    list-style-type: none;
+    border-right: 1px solid #CCC;
+    border-color: #ffcc66;
+    width: 100px;
+    float: right;
+	margin-right: 1px;
+	margin-top: 15px;
+}
+
+#mryn li {
+    text-align: center;
+}
+
+#mryn a {
+    background-color: #ff9933;
+    text-align: center;
+    display: block;
+    font-size: 25px;
+    font-family: cursive;
+    text-decoration: none;
+    color: #ff3300;
+    padding: 5px;
+}
+
+#mryn a:hover {
+    background-color: #ff9900;
+    border: 2px solid;
+    color: #ffcc66;
+}
+
+table {
+    border: 1px solid;
+    font-size: 25px;
+    font-family: cursive;
+    color: #ff9900;
+    width: 18%;
+    margin-left: 200px;
+    text-align: justify;
+    padding: 30px;
+    background-color: rgba(0,0,0,0.3);
+}
+
+#foot {
+    color: #ff3300;
+    background-color: #ff9933;
+    text-align: right;
+    margin-top: 95px;
+}
+
+#images {
+position: fixed;
+    bottom: 90px;
+    right: 20px;
+    display: flex;
+    flex-direction: row; 
+    gap: 10px;
+
+}
+
+#images img {
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 80px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<ul>
+    <li id="mryn"><a href="/">Home</a></li>
+    <li id="mryn"><a href="#contact">Contact</a></li>
+    <li id="mryn"><a href="{% url 'gallery1' %}">Gallery</a></li>
+    <li id="mryn"><a href="/about">About</a></li>
+</ul>
+
+<br><br><br>
+
+<table>
+    <tr>
+        <td>
+            When you hear the word nature, what do you think it is? Do you think it is important? 
+            I believe that nature is everything that was put on this earth whether it is the food we eat, 
+            the water we drink, or the wood we use to build our houses. Others may think nature is just 
+            the oceans and the forests, but no matter what you think nature is we all must take care of it 
+            because it was given to us...
+        </td>
+    </tr>
+</table>
+
+<div id="images">
+    <img src="{% static 'images/fall5.jpeg' %}">
+    <img src="{% static 'images/spring5.jpeg' %}">
+    <img src="{% static 'images/summer5.jpg' %}">
+    <img src="{% static 'images/winter6.jpeg' %}">
+</div>
+
+
+<div id="foot">
+    <h1>@jerrymienalugon</h1>
+</div>
+
+</body>
+
+<div id="imgModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="imgZoom">
+</div>
+
+
+<script>
+document.querySelectorAll("img").forEach(img => {
+    img.addEventListener("click", function() {
+        document.getElementById("imgModal").style.display = "block";
+        document.getElementById("imgZoom").src = this.src;
+    });
+});
+
+document.querySelector(".close").onclick = function() {
+    document.getElementById("imgModal").style.display = "none";
+};
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById("imgModal")) {
+        document.getElementById("imgModal").style.display = "none";
+    }
+};
+</script>
+
+</html>

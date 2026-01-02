@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Seasons</title>
+
+<style>
+body {
+    background-image: url("{% static 'images/123.jpg' %}");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: cursive;
+    color: #ff9933;
+}
+
+ul li {
+    list-style-type: none;
+    border-right: 1px solid #CCC;
+    border-color: #ffcc66;
+    width: 100px;
+    float: right;
+	margin-right: 1px;
+}
+
+#mryn li {
+    text-align: center;
+}
+
+#mryn a {
+    background-color: #ff9933;
+    text-align: center;
+    display: block;
+    font-size: 25px;
+    font-family: cursive;
+    text-decoration: none;
+    color: #ff3300;
+    padding: 5px;
+}
+
+#mryn a:hover {
+    background-color: #ff9900;
+    border: 2px solid;
+    color: #ffcc66;
+}
+
+.content {
+    width: 60%;
+    margin: 150px auto;
+    background-color: rgba(0,0,0,0.5);
+    padding: 30px;
+    border-radius: 15px;
+    font-size: 25px;
+    line-height: 1.5;
+}
+
+#foot {
+    color: #ff3300;
+    background-color: #ff9933;
+    text-align: right;
+    margin-top: 50px;
+}
+</style>
+</head>
+
+<body>
+
+<ul>
+    <li id="mryn"><a href="/">Home</a></li>
+    <li id="mryn"><a href="#contact">Contact</a></li>
+    <li id="mryn"><a href="{% url 'gallery1' %}">Gallery</a></li>
+    <li id="mryn"><a href="{% url 'about' %}">About</a></li>
+</ul>
+
+<div class="content">
+    <h1 style="color:#ffcc66; text-align:center;">About the Seasons of the World</h1>
+
+    <p>
+        The world experiences four main seasons—spring, summer, autumn, and winter—each bringing its own unique 
+        changes in weather, nature, and daylight. These seasons are the result of Earth’s tilted axis and its 
+        yearly orbit around the sun, creating cycles of warmth, growth, transformation, and rest across different regions.
+    </p>
+
+    <p>
+        Spring is often seen as a time of renewal, when plants begin to bloom and temperatures rise. Summer follows 
+        with longer days and warmer weather, making it the season most associated with outdoor activities and energy. 
+        Autumn marks a gradual cooling, painting landscapes with vibrant red, orange, and yellow leaves as nature 
+        prepares for the colder months.
+    </p>
+
+    <p>
+        Winter is the coldest season, bringing snow and shorter days in many parts of the world. Despite the harsh 
+        conditions, winter plays a crucial role in the natural cycle, allowing the environment to reset before the 
+        warmth of spring returns. Together, these four seasons create a rhythm that shapes life, culture, and 
+        traditions across the Earth.
+    </p>
+</div>
+
+<div id="foot">
+    <h1>@jerrymienalugon</h1>
+</div>
+
+</body>
+</html>
